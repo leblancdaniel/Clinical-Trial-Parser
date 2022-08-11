@@ -1,3 +1,27 @@
+## Before you clone this repo
+
+You need to setup the project in Go and THEN clone this repo into the Go project directory.
+```
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)
+mkdir -p $GOPATH/src/github.com/facebookresearch/Clinical-Trial-Parser
+cd $GOPATH/src/github.com/facebookresearch/Clinical-Trial-Parser
+git clone https://github.com/leblancdaniel/Clinical-Trial-Parser.git
+cd Clinical-Trial-Parser
+```
+
+For convenience, you can do everything defined in the [developer guide](doc/developer_guide.md) with a Dockerfile.  This takes about 15 minutes in total.
+```
+docker build --tag criteria-parser
+```
+And then run it:
+```
+docker run criteria-parser
+```
+
+
+# Original README
+
 ![Build](https://github.com/facebookresearch/Clinical-Trial-Parser/workflows/Build/badge.svg)
 
 # Clinical Trial Parser
