@@ -8,12 +8,18 @@ mkdir -p $GOPATH/src/github.com/facebookresearch/Clinical-Trial-Parser
 cd $GOPATH/src/github.com/facebookresearch/Clinical-Trial-Parser
 git clone https://github.com/leblancdaniel/Clinical-Trial-Parser.git
 cd Clinical-Trial-Parser
+go get -u ./...
+go mod tidy
+go build ./...
+go test ./...
 ```
 
 For convenience, you can do everything defined in the [developer guide](doc/developer_guide.md) with a Dockerfile.  This takes about 15 minutes in total.
 ```
-docker build --tag criteria-parser
+docker build --tag criteria-parser .
 ```
+Build with the flag `--platform linux/amd64` if on an Apple M1/M2
+
 And then run it:
 ```
 docker run criteria-parser
